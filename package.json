@@ -1,0 +1,25 @@
+{
+  "name": "01-chat",
+  "version": "0.0.1",
+  "description": "Chat con Express y Socket IO",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "express",
+    "socket.io"
+  ],
+  "author": "@web-luisaguilar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.18.1",
+    "socket.io": "4.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.16"
+  }
+}
