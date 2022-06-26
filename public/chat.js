@@ -1,7 +1,26 @@
-import { io } from '/socket.io/socket.io.js';
+const d = document;
 const socket = io();
-console.log(socket);
+const $input = d.querySelector('#message-text'),
+  $ul = d.querySelector('#chat');
 
-socket.emit('hello', 'world', (response) => {
-  console.log(response); // "got it"
+d.addEventListener('submit', (e) => {
+  e.preventDefault();
+  socket.emit('new message', $input.value);
+  $input.value = '';
 });
+socket.on('new user', ({ message }) => {
+  alert(message);
+});
+
+socket.on('user says', (message) => {
+  const $li = d.createElement('li');
+  $li.innerHTML = message;
+  $ul.appendChild($li);
+  console.log(message);
+});
+
+socket.on('bye user', ({ message }) => {
+  alert(message);
+});
+
+//socket.emit('hello', 'User Conencted');
